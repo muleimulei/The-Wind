@@ -110,11 +110,11 @@ cc.Class({
         this.hero.getComponent('plane').canfire = false;
 
         this.Life.string = 'Life:' + (parseInt(this.Life.string.split(':')[1]) - 1).toString();
-        if (parseInt(this.Life.string.split(':')[1]) == 0) {
+        if (parseInt(this.Life.string.split(':')[1]) <= 0) {
 
-           // cc.director.getScheduler().unscheduleUpdate(this);
-            //this.hero.getComponent('cc.Animation').play('dead_bomb');
-            //cc.audioEngine.stop(this.playId);
+            cc.director.getScheduler().unscheduleUpdate(this);
+            this.hero.getComponent('cc.Animation').play('dead_bomb');
+            cc.audioEngine.stop(this.playId);
             cc.director.loadScene("deadScene");
 
         } else {

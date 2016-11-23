@@ -69,8 +69,11 @@ cc.Class({
                 owner: 'enemy'
             });
             this.bullets.push(Right_bullet);
-            cc.director.getScheduler().scheduleUpdate(Left_bullet, 10, false, Left_bullet.getComponent('bullet').changePos);
-            cc.director.getScheduler().scheduleUpdate(Right_bullet, 10, false, Right_bullet.getComponent('bullet').changePos);
+
+            //Left_bullet.schedule(Left_bullet.getComponent('bullet').changePos,Left_bullet,1);
+            //Right_bullet.schedule(Right_bullet.getComponent('bullet').changePos,Right_bullet,1);
+            cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos,Left_bullet,0.017);
+            cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos,Right_bullet,0.017);
 
         } else {
             var bullet = cc.instantiate(this.bullet);

@@ -56,7 +56,7 @@ cc.Class({
                 x: cc.randomMinus1To1() * (width - 350),
                 y: cc.randomMinus1To1() * height,
                 zIndex: 0,
-                width: cc.random0To1() * width/2,
+                width: cc.random0To1() * width / 2,
                 height: cc.random0To1() * (height - 300),
                 anchorX: 0.5,
                 anchorY: 0
@@ -117,9 +117,10 @@ cc.Class({
             y: this.node.y + 25
         });
 
-        cc.director.getScheduler().scheduleUpdate(Left_bullet, 10, false, Left_bullet.getComponent('bullet').changePos);
-        cc.director.getScheduler().scheduleUpdate(Right_bullet, 10, false, Right_bullet.getComponent('bullet').changePos);
-
+        //cc.director.getScheduler().scheduleUpdate(Left_bullet, 10, false, Left_bullet.getComponent('bullet').changePos);
+        //cc.director.getScheduler().scheduleUpdate(Right_bullet, 10, false, Right_bullet.getComponent('bullet').changePos);
+        cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos, Left_bullet, 0.017);
+        cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos, Right_bullet, 0.017);
 
     },
     update: function (dt) {
@@ -138,12 +139,12 @@ cc.Class({
         for (var i = 0; i < this.map.length; i++) {
             var node = this.map[i];
             node.y -= 4;
-            if (node.y < -height / 2-300) {
+            if (node.y < -height / 2 - 300) {
                 node.attr({
-                    x:  cc.randomMinus1To1() * (width - 350),
+                    x: cc.randomMinus1To1() * (width - 350),
                     y: cc.randomMinus1To1() * height,
-                    width:cc.random0To1() * width/2,
-                    height:cc.random0To1() * (height - 300)
+                    width: cc.random0To1() * width / 2,
+                    height: cc.random0To1() * (height - 300)
                 });
             }
 

@@ -24,14 +24,14 @@ cc.Class({
     changePos: function (dt) {
         if(this.y==null) 
             return;
-        //console.log(this);
+        console.log('hello');
         if (this.owner == 'hero') {
             this.attr({
                 y: this.y + 10
             });
         } else {
             this.attr({
-                y: this.y - 10
+                y: this.y - 11
             });
         }
     },
