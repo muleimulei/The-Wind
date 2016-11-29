@@ -101,7 +101,7 @@ cc.Class({
         });
 
 
-        cc.director
+        
         this.bullets.push(Left_bullet);
         this.bullets.push(Right_bullet);
         Left_bullet.parent = this.node.parent;
@@ -119,8 +119,8 @@ cc.Class({
 
         //cc.director.getScheduler().scheduleUpdate(Left_bullet, 10, false, Left_bullet.getComponent('bullet').changePos);
         //cc.director.getScheduler().scheduleUpdate(Right_bullet, 10, false, Right_bullet.getComponent('bullet').changePos);
-        cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos, Left_bullet, 0.017);
-        cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos, Right_bullet, 0.017);
+        //cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos, Left_bullet, 0.017);
+        //cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos, Right_bullet, 0.017);
 
     },
     update: function (dt) {
@@ -131,10 +131,12 @@ cc.Class({
             var bullet = this.bullets[i];
             if (bullet.y > this.node.parent.height / 2) {
                 this.bullets.splice(i, 1);
-                // bullet.destroy();
-                bullet.removeFromParent(true);
+                 bullet.destroy();
+                //bullet.removeFromParent(true);
             }
+            bullet.y+=10;
         }
+       //  console.log('plane',this.bullets.length);
 
         for (var i = 0; i < this.map.length; i++) {
             var node = this.map[i];

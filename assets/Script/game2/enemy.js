@@ -58,6 +58,8 @@ cc.Class({
                 owner: 'enemy'
             });
             this.bullets.push(Left_bullet);
+            //this.game.bullets.push(Left_bullet);
+            //console.log(this);
 
             var Right_bullet = cc.instantiate(this.bullet);
             Right_bullet.parent = this.node.parent;
@@ -72,8 +74,8 @@ cc.Class({
 
             //Left_bullet.schedule(Left_bullet.getComponent('bullet').changePos,Left_bullet,1);
             //Right_bullet.schedule(Right_bullet.getComponent('bullet').changePos,Right_bullet,1);
-            cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos,Left_bullet,0.017);
-            cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos,Right_bullet,0.017);
+            //cc.director.getScheduler().schedule(Left_bullet.getComponent('bullet').changePos,Left_bullet,0.017);
+            //cc.director.getScheduler().schedule(Right_bullet.getComponent('bullet').changePos,Right_bullet,0.017);
 
         } else {
             var bullet = cc.instantiate(this.bullet);
@@ -87,7 +89,7 @@ cc.Class({
             });
             this.bullets.push(bullet);
 
-            cc.director.getScheduler().scheduleUpdate(bullet, 10, false, bullet.getComponent('bullet').changePos);
+           // cc.director.getScheduler().scheduleUpdate(bullet, 10, false, bullet.getComponent('bullet').changePos);
 
 
         }
@@ -97,14 +99,16 @@ cc.Class({
     update: function (dt) {
         for (var i = this.bullets.length - 1; i >= 0; i--) {
             var bullet = this.bullets[i];
-            if(bullet.y==null){
-                continue;
-            }
+            
             if (bullet.y < -this.node.parent.height / 2) {
                 this.bullets.splice(i, 1);
+                console.log('销毁');
+                bullet.destroy();
             }
+
+            bullet.y-=10;
         }
-       // console.log(this.bullets.length);
+        console.log('enemy',this.bullets.length);
     }
 
 });

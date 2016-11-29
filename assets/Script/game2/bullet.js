@@ -19,12 +19,11 @@ cc.Class({
     },
 
     update: function (dt) {
+
     },
 
     changePos: function (dt) {
-        if(this.y==null) 
-            return;
-        //console.log('hello');
+       
         if (this.owner == 'hero') {
             this.attr({
                 y: this.y + 10
