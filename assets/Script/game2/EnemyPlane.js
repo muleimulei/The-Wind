@@ -86,23 +86,6 @@ cc.Class({
             }
         }
 
-        for (var a = this.enemys.length - 1; a >= 0; a--) {
-            var e = this.enemys[a];
-            if (cc.rectIntersectsRect(e.getBoundingBox(), this.hero.getBoundingBox())) {
-                // console.log('hit');
-                this.enemys.splice(a, 1);
-                var pos = e.getPosition();
-                this.particle.node.attr({
-                    x: pos.x,
-                    y: pos.y
-                });
-                this.particle.resetSystem();
-                e.removeFromParent(true);
-                this.collide();
-            }
-        }
-
-       // console.log('hello');
 
     },
 
@@ -112,9 +95,9 @@ cc.Class({
         this.Life.string = 'Life:' + (parseInt(this.Life.string.split(':')[1]) - 1).toString();
         if (parseInt(this.Life.string.split(':')[1]) <= 0) {
 
-            cc.director.getScheduler().unscheduleUpdate(this);
+            //cc.director.getScheduler().unscheduleUpdate(this);
             this.hero.getComponent('cc.Animation').play('dead_bomb');
-            cc.audioEngine.stop(this.playId);
+            //cc.audioEngine.stop(this.playId);
             cc.director.loadScene("deadScene");
 
         } else {
@@ -136,16 +119,7 @@ cc.Class({
     enemyFireAndMove: function (flag) {
         for (var i = 0; i < this.enemys.length; i++) {
             var enemy = this.enemys[i];
-            //console.log(enemy);
-            // if (!flag) {
-            //     var list = enemy.getComponent('enemy').bullets;
-            //     //console.log(list);
-            //     for (var j = list.length - 1; j >= 0; j--) {
-            //         var bullet = list[j];
-            //         bullet.removeFromParent(true);
-            //     }
-            //     list.splice(0, list.length);
-            // }
+           
             enemy.getComponent('enemy').canmove = flag;
             enemy.getComponent('enemy').canfire = flag;
         }

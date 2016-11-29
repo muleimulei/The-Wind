@@ -10,7 +10,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
+       
     },
     close: function () {
         this.node.active = false;

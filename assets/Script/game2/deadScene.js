@@ -11,7 +11,9 @@ cc.Class({
     },
 
     backToMain:function(){
-        cc.director.loadScene('MainScene');
+        cc.audioEngine.stopAll();
+        //cc.director.loadScene('MainScene');
+        cc.game.end();
     },
     backToGame:function(){
         cc.director.loadScene('title2');

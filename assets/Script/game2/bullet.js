@@ -24,7 +24,7 @@ cc.Class({
     changePos: function (dt) {
         if(this.y==null) 
             return;
-        console.log('hello');
+        //console.log('hello');
         if (this.owner == 'hero') {
             this.attr({
                 y: this.y + 10

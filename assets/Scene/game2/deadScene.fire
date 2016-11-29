@@ -41,7 +41,7 @@
     "_tag": -1,
     "_opacityModifyRGB": false,
     "_id": "3a1559c8-b931-4ba8-9758-dc508da4ffb4",
-    "autoReleaseAssets": false
+    "autoReleaseAssets": true
   },
   {
     "__type__": "cc.Node",
@@ -557,7 +557,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150.63,
+      "width": 50,
       "height": 34.38
     },
     "_children": [],
@@ -603,7 +603,7 @@
       "__uuid__": "dbf7b38e-a88a-44ce-ab25-c0ec132440e8"
     },
     "_isSystemFontUsed": false,
-    "_N$string": "back to main",
+    "_N$string": "Exit",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$overflow": 0
